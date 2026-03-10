@@ -18,9 +18,20 @@ cp ~/.openclaw/openclaw.json ~/.openclaw/openclaw.json.bak
 git push origin main
 ```
 
+### 從 Git 還原備份
+```bash
+# 從 GitHub 還原
+git fetch origin
+git checkout origin/main -- .openclaw_backup/openclaw.json
+
+# 從本地 Git 還原（指定 commit）
+git checkout <commit-hash> -- .openclaw_backup/openclaw.json
+```
+
 ---
 
 ### Gateway 重啟操作前
+涉及以下操作時，**必須先獲得 KFJ 確認**：
 - 修改 .openclaw.json
 - 改 Channel
 - 升級插件
@@ -29,10 +40,15 @@ git push origin main
 - 創建/修改 Agents
 
 **確認後操作**：
-1. 備份：`cp openclaw.json openclaw.json.bak`
-2. 設 Crontab 回滾任務（5 分鐘後）：`cp openclaw.json.bak openclaw.json` + 重啟 Gateway
-3. **告知 KFJ 回滾任務 ID**
-- 完成並成功重啟後：**告知 KFJ** + 取消回滾任務
+1. 備份：`cp ~/.openclaw/openclaw.json ~/.openclaw/openclaw.json.bak`
+2. Git Commit：`git add -A && git commit -m "Backup: before config change"`
+3. 設 Crontab 回滾任務（5 分鐘後）
+4. **告知 KFJ 回滾任務 ID**
+
+**重啟成功後**：
+1. 取消回滾任務（`cron remove <jobId>`）
+2. GitHub 推送備份
+3. 告知 KFJ 完成
 
 ## 每次對話
 - 閱讀 [SOUL.md](file:///e:/O/.openclaw/workspace/SOUL.md) — 了解你是誰（角色設定與規則）
