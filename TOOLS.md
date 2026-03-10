@@ -1,5 +1,8 @@
 # TOOLS.md - Local Notes
 
+## 聯繫方式
+- **KFJ WhatsApp**: +85362338651
+
 Skills define _how_ tools work. This file is for _your_ specifics — the stuff that's unique to your setup.
 
 ## What Goes Here

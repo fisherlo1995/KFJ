@@ -46,8 +46,8 @@ git checkout <commit-hash> -- .openclaw_backup/openclaw.json
 4. **告知 KFJ 回滾任務 ID**
 
 **重啟成功後**：
-1. 取消回滾任務（`cron remove <jobId>`）
-2. GitHub 推送備份
+1. WhatsApp 通知 KFJ：`+85362338651`
+2. 取消回滾任務（`cron remove <jobId>`）
 3. 告知 KFJ 完成
 
 ## 每次對話
