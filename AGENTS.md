@@ -13,7 +13,7 @@ git add -A && git commit -m "Backup: $(date)"
 cp ~/.openclaw/openclaw.json ~/.openclaw/openclaw.json.bak
 ```
 
-### 3. GitHub 推送
+### 3. GitHub 推送（涉及 Gateway 重啟時）
 ```bash
 git push origin main
 ```
