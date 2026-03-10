@@ -18,6 +18,18 @@ cp ~/.openclaw/openclaw.json ~/.openclaw/openclaw.json.bak
 git push origin main
 ```
 
+### 回滾任務（macOS 系統 Crontab）
+```bash
+# 設置 5 分鐘後回滾
+crontab -l 2>/dev/null | { cat; echo "$(date '+\%M \%H \%d \%m \%Y' -d '+5 minutes') cp ~/.openclaw/openclaw.json.bak ~/.openclaw/openclaw.json && /usr/local/bin/openclaw gateway restart"; } | crontab -
+
+# 查看回滾任務
+crontab -l | grep openclaw
+
+# 取消回滾任務
+crontab -l 2>/dev/null | grep -v openclaw | crontab -
+```
+
 ### 從 Git 還原備份
 ```bash
 # 從 GitHub 還原
@@ -42,12 +54,12 @@ git checkout <commit-hash> -- .openclaw_backup/openclaw.json
 **確認後操作**：
 1. 備份：`cp ~/.openclaw/openclaw.json ~/.openclaw/openclaw.json.bak`
 2. Git Commit：`git add -A && git commit -m "Backup: before config change"`
-3. 設 Crontab 回滾任務（5 分鐘後）
+3. **在 macOS 系統層面設 Crontab 回滾任務（5 分鐘後）**
 4. **告知 KFJ 回滾任務 ID**
 
 **重啟成功後**：
 1. WhatsApp 通知 KFJ：`+85362338651`
-2. 取消回滾任務（`cron remove <jobId>`）
+2. 取消 macOS 系統回滾任務
 3. 告知 KFJ 完成
 
 ## 每次對話
