@@ -1,7 +1,7 @@
 # AGENTS.md - 助手工作指南
 
 ## 自動備份和回滾（必須遵守）
-- **每次修改配置文件之前**，必須執行以下 3 個備份步驟：
+- **涉及 Gateway 重啟的配置修改，必須執行以下 3 個備份步驟，缺一不可：**
 
 ### 1. Git Commit（本地）
 ```bash
@@ -13,7 +13,7 @@ git add -A && git commit -m "Backup: $(date)"
 cp ~/.openclaw/openclaw.json ~/.openclaw/openclaw.json.bak
 ```
 
-### 3. GitHub 推送（涉及 Gateway 重啟時）
+### 3. GitHub 推送
 ```bash
 git push origin main
 ```
