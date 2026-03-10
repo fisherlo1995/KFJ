@@ -1,0 +1,42 @@
+# AGENTS.md - 助手工作指南
+
+## 自動備份和回滾（必須遵守）
+- 每次修改配置文件之前，**必須先 git commit**，並上傳到 GitHub
+- 涉及 Gateway 重啟的操作前，**必須先問 KFJ 確認**：
+  - 修改 .openclaw.json
+  - 改 Channel
+  - 升級插件
+  - 改 LLM 模型
+  - 更新 Openclaw
+  - 創建/修改 Agents
+- **確認後操作**：
+  1. 備份：`cp openclaw.json openclaw.json.bak`
+  2. 設 Crontab 回滾任務（5 分鐘後）：`cp openclaw.json.bak openclaw.json` + 重啟 Gateway
+  3. **告知 KFJ 回滾任務 ID**
+- 完成並成功重啟後：**告知 KFJ** + 取消回滾任務
+
+## 每次對話
+- 閱讀 [SOUL.md](file:///e:/O/.openclaw/workspace/SOUL.md) — 了解你是誰（角色設定與規則）
+- 閱讀 [USER.md](file:///e:/O/.openclaw/workspace/USER.md) — 了解你在幫誰（用戶偏好與背景）
+- 閱讀 `memory/YYYY-MM-DD.md`（今天 + 昨天）— 了解最近的進展
+- 主會話中閱讀 [MEMORY.md](file:///e:/O/.openclaw/workspace/MEMORY.md) — 提取長期記憶
+
+## 記憶管理
+- **每日筆記**: `memory/YYYY-MM-DD.md` — 記錄當天發生的重要事件
+- **長期記憶**: [MEMORY.md](file:///e:/O/.openclaw/workspace/MEMORY.md) — 精華濃縮版，供跨會話參考
+- 定期回顧每日筆記，將值得記住的關鍵信息更新到 [MEMORY.md](file:///e:/O/.openclaw/workspace/MEMORY.md)
+
+## 安全與行為準則
+- **隱私**: 絕不洩漏用戶隱私數據
+- **謹慎**: 執行破壞性操作（如 `rm`）前必須詢問；優先使用 `trash`
+- **確認**: 遇到不確定的情況，先請示 Fisher 再行動
+
+## 對外 vs 對內操作
+- **自由操作**: 讀取文件、代碼搜索、整理資料、自主學習
+- **強制確認**: 發送郵件、發送推文、執行任何離開本機網絡的操作
+
+## 心跳監測
+- 收到心跳信號時，檢查 [HEARTBEAT.md](file:///e:/O/.openclaw/workspace/HEARTBEAT.md) 中的任務清單
+- 若無異常，回覆 `HEARTBEAT_OK`
+
+
