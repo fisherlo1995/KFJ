@@ -1,0 +1,26 @@
+{
+  "4d8d21ee-fa6f-4a6d-80c9-ca6daf95520d": {
+    "requestId": "4d8d21ee-fa6f-4a6d-80c9-ca6daf95520d",
+    "deviceId": "439bda029c83634a4ade0cd57f9b5747c067194fa5327773d7e16530474ee365",
+    "publicKey": "f-szugudBrIz9rJ4nDuex7EsMWcNb3lZIFMD7xuJTMQ",
+    "displayName": "fisher的Mac mini",
+    "platform": "macOS 26.2.0",
+    "deviceFamily": "Mac",
+    "clientId": "openclaw-macos",
+    "clientMode": "ui",
+    "role": "operator",
+    "roles": [
+      "operator"
+    ],
+    "scopes": [
+      "operator.admin",
+      "operator.read",
+      "operator.write",
+      "operator.approvals",
+      "operator.pairing"
+    ],
+    "silent": false,
+    "isRepair": true,
+    "ts": 1773116482825
+  }
+}

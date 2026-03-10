@@ -1,0 +1,4 @@
+.openclaw_backup/credentials/
+.openclaw_backup/logs/
+.openclaw_backup/.DS_Store
+.openclaw_backup/exec-approvals.sock
