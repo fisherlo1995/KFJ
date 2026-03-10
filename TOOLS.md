@@ -3,7 +3,9 @@
 ## 聯繫方式
 - **KFJ WhatsApp**: +85362338651
 
-Skills define _how_ tools work. This file is for _your_ specifics — the stuff that's unique to your setup.
+## 環境變量
+- **~/.env 文件**: 存放所有敏感資訊（Token、API Key 等）
+- **每次重啟終端後**，需執行 `source ~/.env` 載入環境變量
 
 ## What Goes Here
 
