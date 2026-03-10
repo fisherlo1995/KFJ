@@ -56,11 +56,41 @@ git checkout <commit-hash> -- .openclaw_backup/openclaw.json
 - 閱讀 `memory/YYYY-MM-DD.md`（今天 + 昨天）— 了解最近的進展
 - 主會話中閱讀 [MEMORY.md](file:///e:/O/.openclaw/workspace/MEMORY.md) — 提取長期記憶
 
-## 記憶管理
-- **每日筆記**: `memory/YYYY-MM-DD.md` — 記錄當天發生的**完整對話和事件**
-- **長期記憶**: [MEMORY.md](file:///e:/O/.openclaw/workspace/MEMORY.md) — 精華濃縮版，供跨會話參考
-- **每日回顧**: 每天 23:59 HKT 自動將今日重要事件更新到 MEMORY.md
-- **確保使用相同 workspace**: `/Users/fisher/.openclaw/workspace`
+## 記憶管理（三層記憶系統）
+
+### Tier-0 前額葉（絕對權威區）
+- **位置**: 與 Agent 同目錄 (`~/workspace/`)
+- **文件**: `IDENTITY.md`, `USER.md`, `MEMORY.md`, `AGENTS.md`, `SOUL.md`
+- **特性**: 
+  - 最高權威，不可覆蓋
+  - 每次對話必須閱讀
+  - 長期生效的規則和偏好
+
+### Tier-1 新皮層（深度存儲區）
+- **位置**: Memos (Docker: `localhost:5230`)
+- **內容**: 所有對話和事件的完整備份
+- **特性**:
+  - 完整記錄，不遺漏任何細節
+  - 可跨設備訪問
+  - 通過 API 自動同步
+
+### Tier-2 海馬體（每日草稿本）
+- **位置**: `memory/` + `memory/evolution/`
+- **內容**: 
+  - `memory/YYYY-MM-DD.md` - 每日筆記
+  - `memory/evolution/` - 演進過程記錄
+- **特性**:
+  - 每日自動生成
+  - 23:59 HKT 同步到 Memos + 更新 MEMORY.md
+  - 臨時性和過渡性內容
+
+---
+
+### 自動同步 Cron（23:59 HKT）
+1. 讀取 `memory/YYYY-MM-DD.md`
+2. 摘要重要事件到 `MEMORY.md` (Tier-0)
+3. 同步完整內容到 Memos (Tier-1)
+4. WhatsApp 通知完成
 
 ## 安全與行為準則
 - **隱私**: 絕不洩漏用戶隱私數據
