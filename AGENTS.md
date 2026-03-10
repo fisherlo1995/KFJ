@@ -120,4 +120,32 @@ git checkout <commit-hash> -- .openclaw_backup/openclaw.json
 - 收到心跳信號時，檢查 [HEARTBEAT.md](file:///e:/O/.openclaw/workspace/HEARTBEAT.md) 中的任務清單
 - 若無異常，回覆 `HEARTBEAT_OK`
 
+## 雙級守護進程
+
+### 架構
+- **Tier 1**: 進程檢測 + 端口檢測
+- **Tier 2**: 失敗計數 (3次) → 強制重啟 → 備份還原
+
+### 腳本位置
+- `/Users/fisher/.openclaw/scripts/openclaw-watchdog.sh`
+
+### 啟動守護進程
+```bash
+# 方法1: launchd (推薦)
+cp ~/.openclaw/scripts/com.openclaw.watchdog.plist ~/Library/LaunchAgents/
+launchctl load ~/Library/LaunchAgents/com.openclaw.watchdog.plist
+
+# 方法2: 手動運行
+~/.openclaw/scripts/openclaw-watchdog.sh
+
+# 查看日誌
+tail -f ~/.openclaw/logs/watchdog.log
+```
+
+### 守護邏輯
+1. 每分鐘檢查端口 28888 和進程狀態
+2. 首次失敗 → 重啟 OpenClaw
+3. 2次失敗 → 強制 kill + 重啟
+4. 3次失敗 → 還原最新備份 + 重啟
+
 
