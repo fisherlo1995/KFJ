@@ -83,8 +83,7 @@ git checkout <commit-hash> -- .openclaw_backup/openclaw.json
 - **API**: `http://localhost:5230/api/v1`
 - **認證**: Bearer Token (`MEMOS_TOKEN`)
 - **同步方式**: 
-  - **實時同步**: 每次對話/事件/任務完成後立即同步
-  - **定時備份**: 每 30 分鐘 (8:00-23:00 HKT)
+  - **實時同步**: 每次對話/事件/任務完成後立即同步（通過 Cron 每分鐘檢查）
 - **記錄格式**:
   ```
   標題: YYYY-MM-DD HH:MM Agent名稱
