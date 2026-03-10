@@ -68,6 +68,8 @@ git checkout <commit-hash> -- .openclaw_backup/openclaw.json
 
 ### Tier-1 新皮層（深度存儲區）
 - **位置**: Memos (Docker: `localhost:5230`)
+- **API**: `http://localhost:5230/api/v1`
+- **認證**: Bearer Token (`MEMOS_TOKEN`)
 - **內容**: 所有對話和事件的完整備份
 - **特性**:
   - 完整記錄，不遺漏任何細節
