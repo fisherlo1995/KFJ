@@ -70,9 +70,10 @@ git checkout <commit-hash> -- .openclaw_backup/openclaw.json
 - **位置**: Memos (Docker: `localhost:5230`)
 - **API**: `http://localhost:5230/api/v1`
 - **認證**: Bearer Token (`MEMOS_TOKEN`)
+- **同步頻率**: **每 30 分鐘** (8:00-23:00 HKT)
 - **內容**: 所有對話和事件的完整備份
 - **特性**:
-  - 完整記錄，不遺漏任何細節
+  - 接近實時同步，不遺漏任何細節
   - 可跨設備訪問
   - 通過 API 自動同步
 
