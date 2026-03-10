@@ -57,9 +57,10 @@ git checkout <commit-hash> -- .openclaw_backup/openclaw.json
 - 主會話中閱讀 [MEMORY.md](file:///e:/O/.openclaw/workspace/MEMORY.md) — 提取長期記憶
 
 ## 記憶管理
-- **每日筆記**: `memory/YYYY-MM-DD.md` — 記錄當天發生的重要事件
+- **每日筆記**: `memory/YYYY-MM-DD.md` — 記錄當天發生的**完整對話和事件**
 - **長期記憶**: [MEMORY.md](file:///e:/O/.openclaw/workspace/MEMORY.md) — 精華濃縮版，供跨會話參考
-- 定期回顧每日筆記，將值得記住的關鍵信息更新到 [MEMORY.md](file:///e:/O/.openclaw/workspace/MEMORY.md)
+- **每日回顧**: 每天 23:59 HKT 自動將今日重要事件更新到 MEMORY.md
+- **確保使用相同 workspace**: `/Users/fisher/.openclaw/workspace`
 
 ## 安全與行為準則
 - **隱私**: 絕不洩漏用戶隱私數據
