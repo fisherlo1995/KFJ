@@ -1,18 +1,37 @@
 # AGENTS.md - 助手工作指南
 
 ## 自動備份和回滾（必須遵守）
-- 每次修改配置文件之前，**必須先 git commit**，並上傳到 GitHub
-- 涉及 Gateway 重啟的操作前，**必須先問 KFJ 確認**：
-  - 修改 .openclaw.json
-  - 改 Channel
-  - 升級插件
-  - 改 LLM 模型
-  - 更新 Openclaw
-  - 創建/修改 Agents
-- **確認後操作**：
-  1. 備份：`cp openclaw.json openclaw.json.bak`
-  2. 設 Crontab 回滾任務（5 分鐘後）：`cp openclaw.json.bak openclaw.json` + 重啟 Gateway
-  3. **告知 KFJ 回滾任務 ID**
+- **每次修改配置文件之前**，必須執行以下 3 個備份步驟：
+
+### 1. Git Commit（本地）
+```bash
+git add -A && git commit -m "Backup: $(date)"
+```
+
+### 2. 備份 openclaw.json
+```bash
+cp ~/.openclaw/openclaw.json ~/.openclaw/openclaw.json.bak
+```
+
+### 3. GitHub 推送
+```bash
+git push origin main
+```
+
+---
+
+### Gateway 重啟操作前
+- 修改 .openclaw.json
+- 改 Channel
+- 升級插件
+- 改 LLM 模型
+- 更新 Openclaw
+- 創建/修改 Agents
+
+**確認後操作**：
+1. 備份：`cp openclaw.json openclaw.json.bak`
+2. 設 Crontab 回滾任務（5 分鐘後）：`cp openclaw.json.bak openclaw.json` + 重啟 Gateway
+3. **告知 KFJ 回滾任務 ID**
 - 完成並成功重啟後：**告知 KFJ** + 取消回滾任務
 
 ## 每次對話
