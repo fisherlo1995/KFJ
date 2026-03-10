@@ -144,8 +144,9 @@ tail -f ~/.openclaw/logs/watchdog.log
 
 ### 守護邏輯
 1. 每分鐘檢查端口 28888 和進程狀態
-2. 首次失敗 → 重啟 OpenClaw
-3. 2次失敗 → 強制 kill + 重啟
-4. 3次失敗 → 還原最新備份 + 重啟
+2. 首次失敗 → 發送 WhatsApp 通知 + 重啟 OpenClaw
+3. 2次失敗 → 發送 WhatsApp 通知 + 強制 kill + 重啟
+4. 3次失敗 → 發送 WhatsApp 通知 + 還原最新備份 + 重啟
+5. 恢復正常 → 發送 WhatsApp 通知
 
 
